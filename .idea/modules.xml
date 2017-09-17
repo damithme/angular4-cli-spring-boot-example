@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/angular4-cli-spring-boot-example.iml" filepath="$PROJECT_DIR$/angular4-cli-spring-boot-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/angular4-cli-spring-boot-example_main.iml" filepath="$PROJECT_DIR$/.idea/modules/angular4-cli-spring-boot-example_main.iml" group="angular4-cli-spring-boot-example" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/angular4-cli-spring-boot-example_test.iml" filepath="$PROJECT_DIR$/.idea/modules/angular4-cli-spring-boot-example_test.iml" group="angular4-cli-spring-boot-example" />
+    </modules>
+  </component>
+</project>
