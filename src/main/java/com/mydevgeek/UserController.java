@@ -3,7 +3,6 @@ package com.mydevgeek;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -13,7 +12,7 @@ import java.util.List;
 @RequestMapping(value = "/users")
 public class UserController {
 
-	private List<User> users;
+	private List<User> users = new ArrayList<>();
 
 
 	UserController() {
@@ -22,23 +21,19 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public List<User> getUsers() {
-		if (this.users.size() == 0) {
-			return Collections.emptyList();
-		} else {
-			return this.users;
-		}
+		return this.users;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public User getUser(@PathVariable("id") Long id) {
-		return this.users.stream().filter(user -> user.getId() == id).findFirst().get();
+		return this.users.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public User saveUser(@RequestBody User user) {
 		Long nextId = 0L;
 		if (this.users.size() != 0) {
-			User lastUser = this.users.stream().skip(this.users.size() - 1).findFirst().get();
+			User lastUser = this.users.stream().skip(this.users.size() - 1).findFirst().orElse(null);
 			nextId = lastUser.getId() + 1;
 		}
 
@@ -50,7 +45,7 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.PUT)
 	public User updateUser(@RequestBody User user) {
-		User modifiedUser = this.users.stream().filter(u -> u.getId() == user.getId()).findFirst().get();
+		User modifiedUser = this.users.stream().filter(u -> u.getId() == user.getId()).findFirst().orElse(null);
 		modifiedUser.setFirstName(user.getFirstName());
 		modifiedUser.setLastName(user.getLastName());
 		modifiedUser.setEmail(user.getEmail());
@@ -59,7 +54,7 @@ public class UserController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public boolean deleteUser(@PathVariable Long id) {
-		User deleteUser = this.users.stream().filter(user -> user.getId() == id).findFirst().get();
+		User deleteUser = this.users.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
 		if (deleteUser != null) {
 			this.users.remove(deleteUser);
 			return true;
