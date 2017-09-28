@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [

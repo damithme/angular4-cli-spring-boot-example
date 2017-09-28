@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by Damith Ganegoda on 9/3/17.
  */
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {

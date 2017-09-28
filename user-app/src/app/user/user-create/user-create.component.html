@@ -1,3 +1,36 @@
-<p>
-  user-create works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section>
+        <form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="firstName">
+            </div>
+
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="lastName">
+            </div>
+          </fieldset>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email"
+                   class="form-control"
+                   formControlName="email">
+          </div>
+
+          <button type="submit" class="btn btn-primary"  [disabled]="!userForm.valid" >Submit</button>
+          <button type="button" class="btn btn-warning" (click)="redirectUserPage()">Cancel</button>
+          <pre>{{userForm.value | json}}</pre>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
